@@ -201,6 +201,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     thermanager
 
+#keep track of time & date since the RTC driver on Qualcomm chipset is read-only.
+    timekeep \
+    TimeKeep
+
 # WIFI MAC update
 PRODUCT_PACKAGES += \
     mac-update
