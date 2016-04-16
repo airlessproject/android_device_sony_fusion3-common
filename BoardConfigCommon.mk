@@ -42,6 +42,7 @@ BOARD_LIB_DUMPSTATE := libdumpstate.sony
 BOARD_KERNEL_BASE     := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE  := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=22 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.selinux=enforcing
+BOARD_KERNEL_CMDLINE  += vmalloc=340M
 BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x02000000
 TARGET_KERNEL_SOURCE  := kernel/sony/apq8064
 
@@ -164,6 +165,11 @@ TW_NO_SCREEN_BLANK := true
 # Enable workaround for slow rom flash
 BOARD_SUPPRESS_SECURE_ERASE := true
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
