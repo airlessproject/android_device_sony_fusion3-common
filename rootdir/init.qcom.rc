@@ -429,3 +429,9 @@ service taimport /system/bin/taimport
     user root
     disabled
     oneshot
+
+service timekeep /system/bin/timekeep restore
+   class late_start
+   user root
+   group root
+   oneshot
